@@ -1,0 +1,24 @@
+/* wwwroot/swagger-custom.css */
+.swagger-ui .topbar {
+    background-color: #2c3e50; /* Dark blue for header */
+    padding: 10px;
+}
+.swagger-ui .info .title {
+    color: #533c39; /* Red for title, e.g., "Restaurant API" */
+    font-family: 'Arial', sans-serif;
+}
+.swagger-ui .scheme-container {
+    background-color: #f5f5f5; /* Light gray for scheme section */
+}
+.swagger-ui .opblock-tag {
+    color: #27ae60; /* Green for endpoint groups */
+    font-size: 18px;
+}
+.swagger-ui .opblock {
+    border-radius: 8px; /* Rounded corners for endpoints */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.swagger-ui .btn {
+    background-color: #3498db; /* Blue buttons */
+    color: white;
+}

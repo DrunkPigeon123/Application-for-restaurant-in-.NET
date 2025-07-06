@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Miłosz\\DOTNET PROJECTS\\restaurant\\restaurant\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\Miłosz\\DOTNET PROJECTS\\restaurant\\restaurant\\wwwroot\\przepisy.css",
+      "PackagePath": "staticwebassets\\przepisy.css"
+    },
+    {
+      "Id": "C:\\Users\\Miłosz\\DOTNET PROJECTS\\restaurant\\restaurant\\wwwroot\\przepisy.html",
+      "PackagePath": "staticwebassets\\przepisy.html"
+    },
+    {
+      "Id": "C:\\Users\\Miłosz\\DOTNET PROJECTS\\restaurant\\restaurant\\wwwroot\\styleds.css",
+      "PackagePath": "staticwebassets\\styleds.css"
+    },
+    {
+      "Id": "C:\\Users\\Miłosz\\DOTNET PROJECTS\\restaurant\\restaurant\\wwwroot\\styles.css",
+      "PackagePath": "staticwebassets\\styles.css"
+    },
+    {
+      "Id": "C:\\Users\\Miłosz\\DOTNET PROJECTS\\restaurant\\restaurant\\wwwroot\\swagger-custom.css",
+      "PackagePath": "staticwebassets\\swagger-custom.css"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.restaurant.props",
+      "PackagePath": "build\\restaurant.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.restaurant.props",
+      "PackagePath": "buildMultiTargeting\\restaurant.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.restaurant.props",
+      "PackagePath": "buildTransitive\\restaurant.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.restaurant.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

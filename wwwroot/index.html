@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restauracja - Wybierz danie</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Wybierz danie</h1>
+        <div id="menu">
+            <button class="dish-button" onclick="getRecipe('Zupa Pomidorowa')">Zupa Pomidorowa</button>
+            <button class="dish-button" onclick="getRecipe('Rosół')">Rosół</button>
+            <button class="dish-button" onclick="getRecipe('Pizza')">Pizza</button>
+            <button class="dish-button" onclick="getRecipe('Kotlet Schabowy')">Kotlet Schabowy</button>
+            <button class="dish-button" onclick="getRecipe('Grzybowa')">Grzybowa</button>
+            <button class="dish-button" onclick="getRecipe('Kurki z Mięsem')">Kurki z Mięsem</button>
+        </div>
+    </div>
+    <button class="przepisy-btn" onclick="przekierujNaPrzepisy()">Przepisy</button>
+    <script>
+        function przekierujNaPrzepisy() {
+            window.location.href = "/przepisy";
+        }
+        const wsHost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'localhost' : '192.168.1.10';
+        const socket = new WebSocket(`ws://${wsHost}:5000/ws`);
+
+        socket.onerror = (error) => {
+            console.error('WebSocket error:', error);
+        };
+
+        socket.onopen = () => {
+            console.log('WebSocket connection established');
+        };
+
+        async function getRecipe(dishName) {
+            if (!dishName) return;
+            try {
+                const response = await fetch(`/api/controlling/recepie/${encodeURIComponent(dishName)}`);
+                if (!response.ok) throw new Error('Brak przepisu');
+                const recipe = await response.json();
+                if (socket.readyState === WebSocket.OPEN) {
+                    socket.send(JSON.stringify({ type: 'dishName', dishName }));
+                    socket.send(JSON.stringify({ type: 'recipe', recipe }));
+                    console.log('Sent via WebSocket:', { dishName, recipe });
+                } else {
+                    console.warn('WebSocket not open, cannot send data');
+                }
+                
+            } catch (error) {
+                console.error('Error fetching recipe:', error);
+                alert(error.message); // Show error to user since no result div
+            }
+        }
+    </script>
+</body>
+</html>
