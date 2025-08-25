@@ -38,6 +38,21 @@ body {
     color: #2c3e50;
     transition: box-shadow 0.2s, transform 0.1s;
 }
+
+.delete-btn {
+    display: inline-block;
+    cursor: pointer;
+    float: right;   /* old-school way */
+    background-color: #b1ccdd;
+    transition: scale 0.1s, background-color 0.2s, color 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: #09305c;
+    color: white;
+    scale: 1.2 ;
+}
+
 .recipe-list li:hover {
     box-shadow: 0 6px 18px rgba(52,152,219,0.13);
     transform: translateY(-2px) scale(1.02);
@@ -61,3 +76,4 @@ body {
     background: linear-gradient(90deg, #2980b9 0%, #56ccf2 100%);
     transform: translateY(-2px) scale(1.04);
 }
+
