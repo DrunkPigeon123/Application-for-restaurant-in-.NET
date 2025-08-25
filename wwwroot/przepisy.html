@@ -33,12 +33,12 @@
                 const dishSpan = document.createElement('span');
                 dishSpan.className = 'dish-name';
                 dishSpan.textContent = dish;
-                dishSpan.onclick = () => {
+                li.onclick = () => {
                     checked = !checked;
                     if (checked) {
-                        fetchRecipe(dish);
+                        fetchRecipe(dish, li);
                     } else {
-                        hideRecipe();
+                        hideRecipe(li);
                     }
                 };
                 const deleteBtn = document.createElement('button');
@@ -86,12 +86,14 @@
             console.log('WebSocket connection established');
         };
 
-        async function fetchRecipe(dishName) {
+        async function fetchRecipe(dishName, li) {
             try {
                 const response = await fetch(`/api/controlling/recepie/${encodeURIComponent(dishName)}`);
                 if (!response.ok) throw new Error('Brak przepisu');
                 const recipe = await response.json();
-                resultDiv.innerHTML = `
+                let recDiv = document.createElement('div');
+                li.appendChild(recDiv);
+                recDiv.innerHTML = `
                     <p><strong>Składniki:</strong> ${recipe.ingredients}</p>
                     <p><strong>Instrukcje:</strong> ${recipe.instructions}</p>
                 `;
@@ -104,8 +106,9 @@
             }
         }
 
-        function hideRecipe() {
-            resultDiv.innerHTML = 'Wybierz danie, aby zobaczyć przepis.';
+        function hideRecipe(li) {
+            li.querySelector('div').remove();
+            //resultDiv.innerHTML = 'Wybierz danie, aby zobaczyć przepis.';
         }
 
         // Initialize list on page load
